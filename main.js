@@ -52,6 +52,8 @@ function resetGame() {
 	$("#endgame").css("display", "none");
 	$(".counter").remove();
 	$(".button").attr("disabled", false);
+
+	if ($("#option_cpustarts").get(0).checked) addCounter(Math.floor(Math.random() * WIDTH), 1);
 }
 
 // Add counter for either player or CPU
