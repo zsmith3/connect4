@@ -7,6 +7,7 @@ function initialSetup() {
 	for (let name in STRATEGIES) {
 		$("<option></option>").attr("value", name).text(name).appendTo("#option_strategy");
 	}
+	$("#option_strategy").get(0).value = DEFAULT_STRATEGY;
 
 	for (let y = 0; y < HEIGHT + 1; y++) {
 		for (let x = 0; x < WIDTH; x++) {

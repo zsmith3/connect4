@@ -171,3 +171,5 @@ const STRATEGIES = {
 	["Look ahead 1"]: stratAhead1,
 	["Look ahead 2"]: stratAhead2,
 };
+
+const DEFAULT_STRATEGY = "Look ahead 2";
