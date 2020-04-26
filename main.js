@@ -64,7 +64,7 @@ function addCounter(x, player) {
 
 	onTurnDone();
 
-	if (player === 0 && !gameOver) cpuTurn();
+	if (player === 0 && !gameOver) setTimeout(cpuTurn, 1);
 }
 
 // Run updates after a turn has been taken
