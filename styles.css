@@ -72,3 +72,9 @@ body {
 	color: white;
 	font-family: arial;
 }
+
+#options {
+	position: absolute;
+	top: 0;
+	margin: 20px;
+}

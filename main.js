@@ -4,6 +4,10 @@ const WIDTH = 7;
 
 // Setup the board
 function initialSetup() {
+	for (let name in STRATEGIES) {
+		$("<option></option>").attr("value", name).text(name).appendTo("#option_strategy");
+	}
+
 	for (let y = 0; y < HEIGHT + 1; y++) {
 		for (let x = 0; x < WIDTH; x++) {
 			$("<div></div>")
@@ -46,6 +50,7 @@ function resetGame() {
 
 	$("#endgame").css("display", "none");
 	$(".counter").remove();
+	$(".button").attr("disabled", false);
 }
 
 // Add counter for either player or CPU
@@ -59,7 +64,7 @@ function addCounter(x, player) {
 
 	onTurnDone();
 
-	if (player === 0) cpuTurn();
+	if (player === 0 && !gameOver) cpuTurn();
 }
 
 // Run updates after a turn has been taken
@@ -127,10 +132,9 @@ function updateWin() {
 	}
 }
 
-// Take the CPU turn
+// Take the CPU turn using current strategy
 function cpuTurn() {
-	let x = null;
-	while (x === null || counters[x].length >= HEIGHT) x = Math.floor(Math.random() * WIDTH);
+	let x = STRATEGIES[$("#option_strategy").get(0).value](counters);
 
 	addCounter(x, 1);
 }
